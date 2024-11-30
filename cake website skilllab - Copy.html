@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Perfectly backed.in</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1109ff44;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff0f0;
+            background-color: #412929;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        li
+        {
+            list-style: none;
+        }
+
+        h2 {
+            text-align: center;
+            color: #df2813;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        .menu-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cake-item {
+            display: inline-block;
+            width: 250px;
+            margin: 20px;
+            background-color: #c9edb0;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cake-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .cake-item h4 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #d321ad;
+        }
+
+        .order-btn {
+            background-color: #8d2cc5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .order-btn:hover {
+            background-color:   #882cbe;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #293e54;
+            color: white;
+            font-size: 12px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .search-bar button {
+            padding: 6px 10px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .search-bar button:hover {
+            background-color: #d35400;
+        }
+
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #3ca6df;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        ul.nav li {
+            float: left;
+        }
+
+        ul.nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.nav li a:hover {
+            background-color: #111;
+        }
+
+        ul.nav li.search-bar {
+            float: right;
+        }
+
+        #cart {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        #testimonial-list {
+            margin-bottom: 20px;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input, form textarea {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #e67e22;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #d35400;
+        }
+
+    </style>
+</head>
+<body>
+
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Cakes</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#cart">Cart</a></li>
+        
+        <li class="search-bar">
+            <form id="searchForm" onsubmit="searchFunction(event)">
+                <input type="text" id="searchInput" placeholder="Search cakes...">
+                <button type="submit">Search</button>
+            </form>
+        </li>
+    </ul>
+
+    <h1>CAKE KINGDOM</h1>
+    <h2>MENU</h2>
+
+    <div class="menu-section">
+        <h3>Cakes</h3>
+        <div class="cake-item">
+            <img src="choco cake.jpeg" alt="Chocolate Cake">
+            <h4>Chocolate Cake</h4>
+            <p class="price">$39</p>
+            <button class="order-btn" onclick="addToCart('Chocolate Cake', 999)">Add to Cart</button>
+        </div>
+
+        <div class="cake-item">
+            <img src="vanilla.jpeg" alt="Vanilla Cake">
+            <h4>Vanilla Cake</h4>
+            <p class="price">$49</p>
+            <button class="order-btn" onclick="addToCart('Vanilla Cake', 599)">Add to Cart</button>
+        </div>
+
+        <div class="cake-item">
+            <img src="fruit.jpeg" alt="Fruit Cake">
+            <h4>Fruit Cake</h4>
+            <p class="price">$60</p>
+            <button class="order-btn" onclick="addToCart('Fruit Cake', 600)">Add to Cart</button>
+        </div>
+
+        <div class="cake-item">
+            <img src="red VELVET.jpeg" alt="Red velvet cake">
+            <h4>Red velvet cake</h4>
+            <p class="price">$56</p>
+            <button class="order-btn" onclick="addToCart('Red velvet cake', 569)">Add to Cart</button>
+        </div>
+
+        <div class="cake-item">
+            <img src="strawberry.jpeg" alt="Strawberry cake">
+            <h4>Strawberry cake</h4>
+            <p class="price">$20</p>
+            <button class="order-btn" onclick="addToCart('strawberry cake', 1000)">Add to Cart</button>
+        </div>
+
+        <div class="cake-item">
+            <img src="black forest.jpeg" alt="Black forest Cake">
+            <h4>Black forest cake-container</h4>
+            <p class="price">$75</p>
+            <button class="order-btn" onclick="addToCart('Carrot Cake', 500)">Add to Cart</button>
+        </div>
+        <div class="cake-item">
+            <img src="chiffon.jpeg" alt="Chiffon Cake">
+            <h4>Chiffon cake</h4>
+            <p class="price">$75</p>
+            <button class="order-btn" onclick="addToCart('Carrot Cake', 500)">Add to Cart</button>
+        </div>
+    </div>
+
+    <section id="cart">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items"></div>
+        <p id="total-price">Total: 0</p>
+        <button onclick="checkout()">Checkout</button>
+    </section>
+
+    <section id="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="gallery-grid">
+            <img src="choco cake.jpeg" alt="Cake Image 1">
+            <img src="CAKE1.10.jpg" alt="Cake Image 2">
+            <img src="CAKE2.2.jpeg" alt="Cake Image 3">
+            <img src="red VELVET.jpeg" alt="Cake Image 4">
+        </div>
+    </section>
+
+
+    <section id="testimonials">
+        <h2>Customer Testimonials</h2>
+        <li>
+         <li>"VERY GOOD"     - NITYA</li>
+         <li>"WONDEFUL"            -ABDUL</li>
+         <li>"BLOODY TASTY"        -JOHN WICK</li>
+         <li>"I AM ABLE NOTICE EVEYTHING"     -SHERLOCK</li>
+    
+
+        <div id="testimonial-list"></div>
+
+        <h3>Leave a Review</h3>
+        <form id="testimonial-form" onsubmit="submitTestimonial(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="message" placeholder="Your Review" required></textarea>
+            <button type="submit">Submit</button>
+        </form
